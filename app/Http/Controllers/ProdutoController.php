@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Produto;
+use DB;
 
 class ProdutoController extends Controller
 {
@@ -26,7 +27,8 @@ class ProdutoController extends Controller
      */
     public function create()
     {
-        return view('Produto/create');
+        $tiposProduto = DB::select('SELECT*FROM tipo_produtos');
+        return view('Produto/create')->with('tiposProduto', $tiposProduto);
     }
 
     /**

@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="container">
-        <form method="POST" action="/tipoproduto">
+        <form method="POST" action="{{route('tipoproduto.store')}}">
             @csrf
             <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">ID</label>
@@ -22,7 +22,7 @@
             <input type="txt" name="descricao" class="form-control" id="exampleInputPassword1" placeholder="Digite a descrição do Tipo de Produto">
             </div>
             
-            <a href="/tipoproduto"class="btn btn-primary">Voltar</a>
+            <a href="{{route('tipoproduto.index')}}"class="btn btn-primary">Voltar</a>
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
     </div> 

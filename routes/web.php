@@ -15,8 +15,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/aula', function () {
     return view('aula');
-});
+})->name('init');
 
 Route::resource('tipoproduto', '\App\Http\Controllers\TipoProdutoController');
 
 Route::resource('produto', '\App\Http\Controllers\ProdutoController');
+
+//Route::get('/prod', '\App\Http\Controllers\ProdutoController@index')->name('produto.index');
+//Route::get('/prod/create', '\App\Http\Controllers\ProdutoController@create')->name('produto.create');;
+//oute::post('/prod', '\App\Http\Controllers\ProdutoController@store')->name('produto.store');;

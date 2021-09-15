@@ -41,7 +41,7 @@
   </tbody>
 </table>
 <a href="" class="btn btn-primary">Voltar</a>
-<a href="tipoproduto/create" class="btn btn-primary">Cadastrar</a>
+<a href="{{route('tipoproduto.create')}}" class="btn btn-primary">Cadastrar</a>
   </div>
    
 

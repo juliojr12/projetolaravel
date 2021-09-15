@@ -9,29 +9,40 @@
 
 </head>
 <body>
+    {{-- <?= var_dump($tiposProduto) ?> --}}
     <div class="container">
-        <form method="POST" action="/produto">
+        <form method="POST" action="{{route('produto.store')}}">
             @csrf
             <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">ID</label>
             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="#" disabled>
-            <div id="emailHelp" class="form-text">O ID não precisa se iformado, pois é criado automaticamente</div>
+            <div id="id-help" class="form-text">O ID não precisa se informado, pois é criado automaticamente</div>
             </div>
             <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Nome</label>
-            <input type="txt" name="nome" class="form-control" id="exampleInputPassword1" placeholder="Digite a descrição do Tipo de Produto">
+            <input type="txt" name="nome" class="form-control" id="id-input-name" placeholder="Digite a descrição do Tipo de Produto">
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Preço</label>
-                <input type="txt" name="preco" class="form-control" id="exampleInputPassword1" placeholder="Digite a descrição do Tipo de Produto">
+                <input type="txt" name="preco" class="form-control" id="id-input-preco" placeholder="Digite a descrição do Tipo de Produto">
                 </div>
             <div class="mb-3">
-                 <label for="exampleInputPassword1" class="form-label">Tipo</label>
-                <input type="txt" name="Tipo_Produtos_id" class="form-control" id="exampleInputPassword1" placeholder="Digite a descrição do Tipo de Produto">
-                </div>    
+                <label for="id-input-tipo" class="form-label">Tipo</label>
+                <select id="id-input-tipo" class="form-select" name="Tipo_Produtos_id"  aria-label="Default select example">
+                    @foreach ($tiposProduto as $item)
+                    <option value={{$item->id}}>{{$item->descricao}}</option>
+                    @endforeach
+                    {{-- <option value="1">Pizza</option>
+                    <option value="2">Suco</option>
+                    <option value="3">Cerveja</option>
+                    <option value="4">Lasanha</option>
+                    <option value="5">Café</option> --}}
+                  </select>  
+                </div>  
+                
             
             
-            <a href="/produto"class="btn btn-primary">Voltar</a>
+            <a href="{{route('produto.index')}}"class="btn btn-primary">Voltar</a>
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
     </div> 

@@ -49,7 +49,7 @@
   </tbody>
 </table>
 <a href="" class="btn btn-primary">Voltar</a>
-<a href="/produto/create" class="btn btn-primary">Cadastrar</a>
+<a href="{{route('produto.create')}}" class="btn btn-primary">Cadastrar</a>
   </div>
    
 
