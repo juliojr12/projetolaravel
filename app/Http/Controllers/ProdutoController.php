@@ -79,7 +79,18 @@ class ProdutoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $produto = DB::select('SELECT PRODUTOS.id,
+        PRODUTOS.nome,
+        PRODUTOS.preco,
+        TIPO_PRODUTOS.descricao,
+        PRODUTOS.updated_at,
+        PRODUTOS.created_at
+   FROM  PRODUTOS
+   JOIN  TIPO_PRODUTOS  ON Tipo_produtos_id = TIPO_PRODUTOS.id
+
+    WHERE PRODUTOS.id = ?', [$id])[0];
+        $tiposProduto = DB::select('SELECT*FROM tipo_produtos');
+        return view('Produto/edit')->with('produto', $produto)->with('tiposProduto', $tiposProduto);
     }
 
     /**
